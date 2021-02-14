@@ -1,0 +1,106 @@
+﻿@model IEnumerable<bela.Models.Bela>
+
+@{
+
+
+    int UkMi = Model.Sum(x => x.BodoviMi) + Model.Sum(x => x.ZvanjaMi);
+    int UkVi = Model.Sum(x => x.BodoviVi) + Model.Sum(x => x.ZvanjaVi);
+
+    ViewData["Title"] = "Index";
+
+    int Mi = Model.Sum(x => x.BodoviMi);
+    int Vi = Model.Sum(y => y.BodoviVi);
+
+    bool sakrij()
+    {
+        if ((UkMi < 1000) && (UkVi < 1000))
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+
+    }
+
+
+}
+
+<h1>Index</h1>
+
+
+
+<form typeof="get">
+
+    <input id="Button1" type="button" value="button" />
+    Filter partija:
+    <input type="search" name="search" />
+    <input type="submit" value="trazi" />
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ZvanjaMi)
+            </th>
+            <th>
+                <h2> Mi </h2>
+            </th>
+            <th>
+                <h2> Vi </h2>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZvanjaVi)
+            </th>
+            <th>partija</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ZvanjaMi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BodoviMi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BodoviVi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ZvanjaVi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Partija)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+        <tr>
+            <td>
+                <h3>@Model.Sum(x => x.ZvanjaMi)</h3>
+            </td>
+            <td>
+                <h3> @UkMi</h3>
+            </td>
+            <td>
+                <h3> @UkVi</h3>
+            </td>
+            <td>
+                <h3> @Model.Sum(x => x.ZvanjaVi)</h3>
+            </td>
+            <td>
+            </td>
+            <td>
+                <a id="kreiraj" hidden=@sakrij() asp-action="Create">UPIS BODOVA</a>
+            </td>
+        </tr>
+
+    </tbody>
+</table>

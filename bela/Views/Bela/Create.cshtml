@@ -1,0 +1,89 @@
+﻿@model bela.Models.Bela
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+
+
+
+<h1>Create</h1>
+
+<h4>Bela</h4>
+<hr />
+
+
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <table class="tg">
+                <tbody>
+                    <tr>
+                        <td class="tg-0lax">
+                            <div class="form-group">
+                                <label asp-for="ZvanjaMi" class="control-label"></label>
+                                <input asp-for="ZvanjaMi" id="asd" value="0" class="form-control" />
+                                <span asp-validation-for="ZvanjaMi" class="text-danger"></span>
+                            </div>
+                        </td>
+                        <td class="tg-0lax">
+                            <div class="form-group">
+                                <label asp-for="BodoviMi" class="control-label"></label>
+                                <input asp-for="BodoviMi" value="0" class="form-control" />
+                                <span asp-validation-for="BodoviMi" class="text-danger"></span>
+                            </div>
+                        </td>
+                        <td class="tg-0lax">
+                            <div class="form-group">
+                                <label asp-for="BodoviVi" class="control-label"></label>
+                                <input asp-for="BodoviVi" value="0" class="form-control" />
+                                <span asp-validation-for="BodoviVi" class="text-danger"></span>
+                            </div>
+                        </td>
+                        <td class="tg-0lax">
+                            <div class="form-group">
+                                <label asp-for="ZvanjaVi" class="control-label"></label>
+                                <input asp-for="ZvanjaVi" value="0" class="form-control" />
+                                <span asp-validation-for="ZvanjaVi" class="text-danger"></span>
+                            </div>
+                        </td>
+                        <td>
+
+                            <div class="form-group">
+                                <label asp-for="PartijaId" class="control-label"></label>
+                                <select asp-for="PartijaId" class="form-control" asp-items="ViewBag.PartijaId"></select>
+                            </div>
+                        </td>
+                    </tr>
+
+
+
+                </tbody>
+            </table>
+
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+
+@section Scripts {
+    <script>
+
+    </script>
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+

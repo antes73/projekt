@@ -1,0 +1,48 @@
+﻿@model bela.Models.Bela
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Bela</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ZvanjaMi)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ZvanjaMi)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.BodoviMi)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.BodoviMi)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.BodoviVi)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.BodoviVi)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ZvanjaVi)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ZvanjaVi)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Partija)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Partija.Naziv)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
