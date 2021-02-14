@@ -22,20 +22,59 @@
 
     }
 
+    bool sakrij1()
+    {
+        if (((UkMi > 1000) || (UkVi > 1000)) && UkMi > UkVi)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+
+    }
+
+    bool sakrij2()
+    {
+        if (((UkMi > 1000) || (UkVi > 1000)) && UkMi < UkVi)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+
+    }
+
+    bool sakrij3()
+    {
+        if (((UkMi > 1000) || (UkVi > 1000)) && UkMi == UkVi)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+
+    }
+
     bool tblskrivena()
     {
 
         return false;
 
     }
-           
-   }
+
+}
 
 <h1>Index</h1>
 
 
 
-<form typeof="get">     
+<form typeof="get">
     Upišite naziv partije:
     <input type="search" name="search" />
     <input type="submit" value="trazi" />
@@ -101,3 +140,17 @@
 
     </tbody>
 </table>
+<div id="kraj1" hidden=@sakrij1()>
+    <h2> Pobijedila je ekipa Mi sa @UkMi dok je ekipa Vi imala @UkVi bodova!</h2>
+    <h1>Molimo Vas kreirajte novu partiju!</h1>
+</div>
+
+<div id="kraj2" hidden=@sakrij2()>
+    <h2> Pobijedila je ekipa Vi sa @UkVi dok je ekipa Mi imala @UkMi bodova!</h2>
+    <h1>Molimo Vas kreirajte novu partiju!</h1>
+</div>
+
+<div id="kraj3" hidden=@sakrij3()>
+    <h2> Partija je završila izjednačenjem, obje ekipe imaju @UkVi bodova!</h2>
+    <h1>Molimo Vas kreirajte novu partiju!</h1>
+</div>
